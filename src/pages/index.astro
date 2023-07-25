@@ -1,81 +1,70 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Header from "../components/Header.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+  <Header />
+  <main>
+    <h1>Добро пожаловать</h1>
+    <p>
+      Меня зовут Аскар Кантурин, мне 22<br />
+       И это мой личный веб-сайт
+    </p>
+    <h2>Мои проекты</h2>
+    <p>
+      Проекты:
+      - сделать странички проектам и добавить линки на гитхабы
+    </p>
+    <h2>О себе</h2>
+    <p>
+      <a>Программист</a>, <a>музыкант</a>, <a>геймдев</a>.
+      <br/>
+      С раннего детства я любил создавать и придумывать.
+      <br/>
+      Неважно что: персонажей, мелодии, цвета, сценарии, игры 
+      — важен сам процесс: перед тобой "чистый лист", и путем смешных и не очень операций
+      ты делаешь этот лист грязным.
+      <br/>
+      Первое где я начал реализовывать свою пассию к созиданию — это поэзия.
+      К сожалению или счастью мои работы в этом направлении были утеряны,
+      но я не думаю, что 6-летний я мог похвастаться хорошим слогом.
+      <br/>
+      После этого я начал пробовать себя в рисовании (как наверное 
+      любой уважающий себя 10-летний ребенок), но далеко
+      особо не ушел, так как это не казалось мне особо интересным.
+      <br/>
+      Потом родители меня отдали в музыкальную школу, с чего началось моё увлечение музыкой.
+      <br/>
+      И в 13 лет, помогая отцу с разработкой сайтов я познакомился с программированием,
+      которым я активно занимаюсь до сих пор.
+    </p>
+    <h2>Что тут подразумевается</h2>
+  </main>
 </Layout>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+<style lang="scss">
+
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+    color: rgb($white);
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgb($accent-pink);
+    background-color: rgb($white);
+    color: rgb($black);
+    padding: 1rem;
+    border-radius: 5px;
+  }
 </style>
