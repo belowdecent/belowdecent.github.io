@@ -1,0 +1,100 @@
+---
+interface Props {
+  linkTo: string;
+  title: string;
+}
+
+const { linkTo, title } = Astro.props;
+---
+
+<div class="card">
+  <div class="head">
+    <h4>{title}</h4>
+    <a href={linkTo}>{linkTo}</a>
+  </div>
+  <input type="checkbox" id={linkTo} />
+  <label for={linkTo}></label>
+  <div class="tricky-grid">
+    <p>
+      <slot />
+    </p>
+  </div>
+</div>
+
+<style lang="scss">
+  .card {
+    border-radius: 1.2rem;
+    position: relative;
+    margin-block: 0.5rem;
+    padding: 1.2rem;
+    background: rgb($white);
+    color: rgb($black);
+    box-shadow: 0.1rem 0.1rem 0.3rem 0 rgb(rgb($white), 0.5);
+  }
+
+  .head {
+    width: 100%;
+    border-bottom: 1px rgb(rgb($black), 0.3) solid;
+    padding-bottom: 0.5rem;
+  }
+
+  p,
+  a {
+    font-size: 0.8rem;
+  }
+
+  a,
+  a:any-link {
+    text-decoration: none;
+    color: rgb($accent-blue);
+  }
+
+  .tricky-grid {
+    display: grid;
+    margin-top: 0.5rem;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 300ms;
+
+    p {
+      overflow: hidden;
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+  }
+
+  input {
+    position: absolute;
+    right: 0rem;
+    top: 0rem;
+    z-index: -1;
+    display: block;
+    opacity: 0;
+  }
+
+  input:checked ~ .tricky-grid {
+    grid-template-rows: 1fr;
+  }
+
+  input:checked ~ label::before {
+    content: "Hide";
+  }
+
+  label::before {
+    content: "Show";
+    color: red;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+
+  h4 {
+    line-height: 1;
+  }
+</style>

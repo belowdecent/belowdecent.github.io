@@ -2,14 +2,30 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/header/Header.astro";
 import Main from "../components/containers/Main.astro";
-import ProjectList from "../components/cards/ProjectList.svelte";
+import ProjectCard from "../components/cards/ProjectCard.astro";
+import ProjectCardList from "../components/cards/ProjectCardList.astro";
 ---
 
 <Layout title="Мои проекты">
   <Header />
   <Main>
     <h1>Мои проекты</h1>
-    <ProjectList client:only="svelte"/>
+    <ProjectCardList title="Js" id="js">
+      <ProjectCardList title="Js2" id="js2">
+        <ProjectCard title="Bruh3" linkTo="cribge3.com">
+          Working on it.
+        </ProjectCard>
+        <ProjectCard title="Bruh4" linkTo="cribge4.com">
+          Working on it.
+        </ProjectCard>
+      </ProjectCardList>
+      <ProjectCard title="Bruh2" linkTo="cribge2.com">
+        Working on it.
+      </ProjectCard>
+      <ProjectCard title="Bruh" linkTo="cribge.com">
+        Working on it.
+      </ProjectCard>
+    </ProjectCardList>
   </Main>
 </Layout>
 
