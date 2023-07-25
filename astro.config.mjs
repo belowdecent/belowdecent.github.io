@@ -1,14 +1,15 @@
 import { defineConfig } from "astro/config";
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
-
+import svelte from "@astrojs/svelte";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 
 // https://astro.build/config
 export default defineConfig({
   experimental: {
-    assets: true,
+    assets: true
   },
   vite: {
     resolve: {
@@ -20,12 +21,10 @@ export default defineConfig({
       preprocessorOptions: {
         scss: {
           // path to your scss variables
-          additionalData: `@import "@/styles/pallete.scss";`
+          additionalData: `@import "@/styles/pallete.scss";@import "@/styles/globals.scss";`
         }
       }
     }
-  }
+  },
+  integrations: [svelte()]
 });
-
-
-

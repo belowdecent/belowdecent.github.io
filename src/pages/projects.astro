@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/header/Header.astro";
+import Main from "../components/containers/Main.astro";
+import ProjectList from "../components/cards/ProjectList.svelte";
+---
+
+<Layout title="Мои проекты">
+  <Header />
+  <Main>
+    <h1>Мои проекты</h1>
+    <ProjectList client:only="svelte"/>
+  </Main>
+</Layout>
+
+<style lang="scss"></style>
