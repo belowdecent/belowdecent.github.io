@@ -13,13 +13,9 @@ const { linkTo, title, id } = Astro.props;
     <h4>{title}</h4>
     <a href={linkTo}>{linkTo}</a>
   </div>
-  <input type="checkbox" id={id} />
-  <label for={id}></label>
-  <div class="tricky-grid">
-    <p>
-      <slot />
-    </p>
-  </div>
+  <p>
+    <slot />
+  </p>
 </div>
 
 <style lang="scss">
@@ -37,6 +33,7 @@ const { linkTo, title, id } = Astro.props;
     width: 100%;
     border-bottom: 1px rgb(rgb($black), 0.3) solid;
     padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   p,
@@ -50,48 +47,6 @@ const { linkTo, title, id } = Astro.props;
     color: rgb($accent-blue);
   }
 
-  .tricky-grid {
-    display: grid;
-    margin-top: 0.5rem;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 300ms;
-
-    p {
-      overflow: hidden;
-    }
-  }
-
-  label {
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-  }
-
-  input {
-    position: absolute;
-    right: 0rem;
-    top: 0rem;
-    z-index: -1;
-    display: block;
-    opacity: 0;
-  }
-
-  input:checked ~ .tricky-grid {
-    grid-template-rows: 1fr;
-  }
-
-  input:checked ~ label::before {
-    content: "Свернуть";
-  }
-
-  label::before {
-    content: "Подробнее";
-    text-decoration: underline;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-  }
 
   h4 {
     line-height: 1;

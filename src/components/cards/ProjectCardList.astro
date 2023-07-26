@@ -10,9 +10,9 @@ const { id, title } = Astro.props;
 <div class="block">
   <div class="head">
     <h3>{title}</h3>
+    <label for={id}></label>
   </div>
   <input type="checkbox" id={id} />
-  <label for={id}></label>
   <div class="tricky-grid">
     <div class="columns">
       <div class="stripe"></div>
@@ -28,18 +28,10 @@ const { id, title } = Astro.props;
     line-height: 1.2;
   }
 
-  .block {
-    position: relative;
-  }
-
   .head {
     width: 100%;
-  }
-
-  button {
-    position: absolute;
-    right: 0;
-    top: 0;
+    position: relative;
+    margin-block: 0.6rem;
   }
 
   .columns {
@@ -62,7 +54,6 @@ const { id, title } = Astro.props;
   }
 
   .tricky-grid {
-    margin-block: 0.6rem;
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 300ms;
@@ -74,8 +65,7 @@ const { id, title } = Astro.props;
 
   label {
     position: absolute;
-    top: 0;
-    right: 0;
+    inset: 0;
     cursor: pointer;
   }
 
@@ -101,7 +91,7 @@ const { id, title } = Astro.props;
     position: absolute;
     text-decoration: underline;
     line-height: 2rem;
-    right: 1rem;
+    right: 0rem;
     top: 0rem;
   }
 </style>
