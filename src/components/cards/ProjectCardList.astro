@@ -34,8 +34,6 @@ const { id, title } = Astro.props;
 
   .head {
     width: 100%;
-    border-bottom: 1px rgb(rgb($black), 0.3) solid;
-    padding-bottom: 0.5rem;
   }
 
   button {
@@ -64,11 +62,11 @@ const { id, title } = Astro.props;
   }
 
   .tricky-grid {
-    margin-top: 0.5rem;
+    margin-block: 0.6rem;
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 300ms;
-    
+
     .columns {
       overflow: hidden;
     }
@@ -78,9 +76,6 @@ const { id, title } = Astro.props;
     position: absolute;
     top: 0;
     right: 0;
-    width: 5rem;
-    height: 5rem;
-    height: 2rem;
     cursor: pointer;
   }
 
@@ -98,14 +93,15 @@ const { id, title } = Astro.props;
   }
 
   input:checked ~ label::before {
-    content: "Hide";
+    content: "Свернуть";
   }
 
   label::before {
-    content: "Show";
-    color: red;
+    content: "Показать";
     position: absolute;
-    right: 0rem;
+    text-decoration: underline;
+    line-height: 2rem;
+    right: 1rem;
     top: 0rem;
   }
 </style>

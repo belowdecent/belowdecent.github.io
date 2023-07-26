@@ -10,23 +10,39 @@ import ProjectCardList from "../components/cards/ProjectCardList.astro";
   <Header />
   <Main>
     <h1>Мои проекты</h1>
-    <ProjectCardList title="Js" id="js">
-      <ProjectCardList title="Js2" id="js2">
-        <ProjectCard title="Bruh3" linkTo="cribge3.com">
-          Working on it.
+    <ProjectCardList title="Web" id="web">
+      <ProjectCardList title="React" id="react">
+        <ProjectCard 
+          title="Мини-блог на Next.js" 
+          linkTo="https://github.com/belowdecent/little-nextjs-proj" 
+          id="nextjs-thing"
+        >
+          Небольшой блог использующий фреймворк Next.js.
         </ProjectCard>
-        <ProjectCard title="Bruh4" linkTo="cribge4.com">
-          Working on it.
+        <ProjectCard 
+          title="Pet Rocks" 
+          linkTo="https://github.com/belowdecent/petrock-app"
+          id="petrock-app"
+        >
+          Сайт, что хранит информацию о камнях-питомцев зарегистрированных пользователей.
+          <br/>
+          Бекенд написан на Nest.js, фронтенд на React.
+          Использует токены JWT.
         </ProjectCard>
       </ProjectCardList>
-      <ProjectCard title="Bruh2" linkTo="cribge2.com">
-        Working on it.
-      </ProjectCard>
-      <ProjectCard title="Bruh" linkTo="cribge.com">
-        Working on it.
-      </ProjectCard>
+      <ProjectCardList title="Astro" id="astro">
+        <ProjectCard 
+          title="Этот сайт" 
+          linkTo="https://github.com/belowdecent/website" 
+          id="this-website"
+        >
+          Собственно, мой личный сайт, на котором вы сейчас находитесь, написан на Astro.
+          Мой любимый фреймворк, для небольших проектов, наверное, лучше не найти.
+        </ProjectCard>
+      </ProjectCardList>
     </ProjectCardList>
   </Main>
 </Layout>
 
-<style lang="scss"></style>
+<style lang="scss">
+</style>

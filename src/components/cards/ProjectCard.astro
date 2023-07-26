@@ -2,9 +2,10 @@
 interface Props {
   linkTo: string;
   title: string;
+  id: string;
 }
 
-const { linkTo, title } = Astro.props;
+const { linkTo, title, id } = Astro.props;
 ---
 
 <div class="card">
@@ -12,8 +13,8 @@ const { linkTo, title } = Astro.props;
     <h4>{title}</h4>
     <a href={linkTo}>{linkTo}</a>
   </div>
-  <input type="checkbox" id={linkTo} />
-  <label for={linkTo}></label>
+  <input type="checkbox" id={id} />
+  <label for={id}></label>
   <div class="tricky-grid">
     <p>
       <slot />
@@ -64,8 +65,6 @@ const { linkTo, title } = Astro.props;
     position: absolute;
     top: 0;
     right: 0;
-    width: 5rem;
-    height: 5rem;
     cursor: pointer;
   }
 
@@ -83,12 +82,12 @@ const { linkTo, title } = Astro.props;
   }
 
   input:checked ~ label::before {
-    content: "Hide";
+    content: "Свернуть";
   }
 
   label::before {
-    content: "Show";
-    color: red;
+    content: "Подробнее";
+    text-decoration: underline;
     position: absolute;
     right: 1rem;
     top: 1rem;
