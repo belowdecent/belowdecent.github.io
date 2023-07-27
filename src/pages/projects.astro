@@ -4,13 +4,14 @@ import Header from "../components/header/Header.astro";
 import Main from "../components/containers/Main.astro";
 import ProjectCard from "../components/cards/ProjectCard.astro";
 import ProjectCardList from "../components/cards/ProjectCardList.astro";
+
 ---
 
 <Layout title="Мои проекты">
   <Header />
   <Main>
     <h1>Мои проекты</h1>
-    <ProjectCardList title="Web" id="web">
+    <ProjectCardList title="Web" id="web" headingLevel={2}>
       <ProjectCardList title="React" id="react">
         <ProjectCard
           title="Мини-блог на Next.js"

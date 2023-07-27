@@ -1,0 +1,46 @@
+---
+interface Props {
+  id: number;
+  name: string;
+  title: string;
+  checked: boolean;
+}
+
+const {id, name, title, checked} = Astro.props;
+const idString = `tab-${name}-${id}`;
+---
+<input {checked} type="radio" id={idString} {name}/>
+<label for={idString}>{title}</label>
+<p>
+  <slot/>
+</p>
+
+<style lang="scss">
+  p {
+    display: none;
+    grid-row: 999;
+    grid-column: 1/-1;
+    padding-top: 1rem;
+  }
+
+  label {
+    display: block;
+    padding: 0.2rem 0.4rem;
+    cursor: pointer;
+  }
+
+  input {
+    display: none;
+
+    &:checked {
+      & + label {
+        background: white;
+        color: black;
+
+        & + p {
+          display: block;
+        }
+      }
+    }
+  }
+</style>

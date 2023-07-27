@@ -2,15 +2,18 @@
 interface Props {
   id: string;
   title: string;
+  headingLevel?: number;
 }
 
-const { id, title } = Astro.props;
+const { id, title, headingLevel = 3 } = Astro.props;
 ---
 
 <div class="block">
   <input type="checkbox" id={id} />
   <div class="head">
-    <h3>{title}</h3>
+    <Fragment set:html={`<h${headingLevel}>`}/>
+    {title}
+    <Fragment set:html={`</h${headingLevel}>`}/>
     <label for={id}></label>
   </div>
   <div class="tricky-grid">
@@ -92,14 +95,14 @@ const { id, title } = Astro.props;
     align-items: center;
     justify-content: center;
     padding-inline: 1rem;
-    border-radius: 9999px;
     background: rgb($white);
     color: rgb($black);
+    border-radius: 9999px;
     content: "Показать";
     position: absolute;
     min-width: 11ch;
+    bottom: 0.5rem;
     right: 0;
-    top: 0;
-    bottom: 0;
+    height: 2rem;
   }
 </style>

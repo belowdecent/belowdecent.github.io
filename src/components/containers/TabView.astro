@@ -1,0 +1,31 @@
+---
+import Tab from "./Tab.astro";
+
+interface Props {
+  content: {
+    title: string;
+    description: string;
+  }[],
+  name: string
+}
+
+const {content,name} = Astro.props;
+let count = 0;
+---
+
+<div>
+  {content.map((a) => (
+    <Tab checked={count < 1} id={count += 1} title={a.title} {name} set:html={a.description}/>
+  ))}
+</div>
+
+<style lang="scss">
+  div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12ch, 1fr));
+  }
+
+  p {
+    color: white;
+  }
+</style>

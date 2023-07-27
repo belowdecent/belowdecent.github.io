@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/header/Header.astro";
 import Main from "../components/containers/Main.astro";
+import TabView from "../components/containers/TabView.astro";
+import skills from "../data/skills";
 ---
 
 <Layout title="belowdecent">
@@ -18,7 +20,7 @@ import Main from "../components/containers/Main.astro";
       на гитхабы
     </p>
     <h2>О себе</h2>
-    <p>
+    <p style="display: none">
       <a>Программист</a>, <a>музыкант</a>, <a>геймдев</a>.
       <br />
        С раннего детства я любил создавать и придумывать.
@@ -45,6 +47,7 @@ import Main from "../components/containers/Main.astro";
       познакомился с программированием, которым я активно
       занимаюсь до сих пор.
     </p>
+    <TabView name="skills" content={skills}/>
   </Main>
 </Layout>
 
