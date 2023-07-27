@@ -6,7 +6,8 @@ interface Props {
 const { linkTo = "/" } = Astro.props;
 
 const pathname = new URL(Astro.request.url).pathname;
-const activeClass: string[] = pathname === linkTo ? ["active"] : [];
+const activeClass: string[] =
+  pathname === linkTo ? ["active"] : [];
 ---
 
 <li class:list={activeClass}>
