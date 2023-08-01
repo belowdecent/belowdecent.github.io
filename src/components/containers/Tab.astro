@@ -17,16 +17,25 @@ const idString = `tab-${name}-${id}`;
 
 <style lang="scss">
   p {
-    display: none;
     grid-row: 999;
     grid-column: 1/-1;
     padding-top: 1rem;
+
+    animation-name: slideout;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
   }
 
   label {
     display: block;
-    padding: 0.2rem 0.4rem;
+    padding: 0.3rem 0.5rem;
     cursor: pointer;
+    border-radius: 0.3rem;
+    transition: 
+      background-color 0.2s,
+      color 0.2s,
+      font-weight 0.2s;
   }
 
   input {
@@ -34,13 +43,42 @@ const idString = `tab-${name}-${id}`;
 
     &:checked {
       & + label {
-        background: white;
-        color: black;
+        background: rgb($white);
+        color: rgb($dark);
+        font-weight: 600;
 
         & + p {
           display: block;
+          animation-name: slidein;
+          animation-duration: 0.4s;
+          animation-fill-mode: forwards;
+          animation-timing-function: ease-in-out;
         }
       }
+    }
+  }
+
+  @keyframes slideout {
+    from {
+      transform: translate(0) scale(1);
+      opacity: 1;
+    }
+
+    to {
+      transform: translate(-50vw) scale(0.8);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slidein {
+    from {
+      transform: translate(50vw) scale(0.8);
+      opacity: 0;
+    }
+
+    to {
+      transform: translate(0) scale(1);
+      opacity: 1;
     }
   }
 </style>

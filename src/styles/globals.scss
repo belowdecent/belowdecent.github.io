@@ -1,42 +1,67 @@
 $header-height: 4rem;
 
-$_font-base: 1.1rem;
-$_heading-scale-factor: 1.25;
+$_font-desktop: 1.1rem;
+$_font-mobile: 0.9rem;
 
-$_h6: $_font-base;
-$_h5: $_h6 * $_heading-scale-factor;
-$_h4: $_h5 * $_heading-scale-factor;
-$_h3: $_h4 * $_heading-scale-factor;
-$_h2: $_h3 * $_heading-scale-factor;
-$_h1: $_h2 * $_heading-scale-factor;
+$_font-scale-factor: 1.25;
+$_h6-font-scale: $_font-scale-factor;
+$_h5-font-scale: $_h6-font-scale * $_font-scale-factor;
+$_h4-font-scale: $_h5-font-scale * $_font-scale-factor;
+$_h3-font-scale: $_h4-font-scale * $_font-scale-factor;
+$_h2-font-scale: $_h3-font-scale * $_font-scale-factor;
+$_h1-font-scale: $_h2-font-scale * $_font-scale-factor;
 
+
+:root {
+  --font-base:    #{$_font-desktop};
+  --h1-font-size: #{$_font-desktop * $_h1-font-scale};
+  --h2-font-size: #{$_font-desktop * $_h2-font-scale};
+  --h3-font-size: #{$_font-desktop * $_h3-font-scale};
+  --h4-font-size: #{$_font-desktop * $_h4-font-scale};
+  --h5-font-size: #{$_font-desktop * $_h5-font-scale};
+  --h6-font-size: #{$_font-desktop * $_h6-font-scale};
+
+  @media (max-width: 600px) {
+    --font-base: #{$_font-mobile};
+    --h1-font-size: #{$_font-mobile * $_h1-font-scale};
+    --h2-font-size: #{$_font-mobile * $_h2-font-scale};
+    --h3-font-size: #{$_font-mobile * $_h3-font-scale};
+    --h4-font-size: #{$_font-mobile * $_h4-font-scale};
+    --h5-font-size: #{$_font-mobile * $_h5-font-scale};
+    --h6-font-size: #{$_font-mobile * $_h6-font-scale};
+  }
+}
 
 h6 {
-  font-size: $_h6;
+  font-size: var(--h6-font-size);
   font-weight: 500;
 }
 
 h5 {
-  font-size: $_h5;
+  font-size: var(--h5-font-size);
   font-weight: 500;
 }
 
 h4 {
-  font-size: $_h4;
+  font-size: var(--h4-font-size);
   font-weight: 500;
 }
 
 h3 {
-  font-size: $_h3;
+  font-size: var(--h3-font-size);
   font-weight: 400;
 }
 
 h2 {
-  font-size: $_h2;
+  font-size: var(--h2-font-size);
   font-weight: 600;
 }
 
 h1 {
-  font-size: $_h1;
+  font-size: var(--h1-font-size);
   font-weight: 800;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
 }
