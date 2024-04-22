@@ -8,7 +8,6 @@ const __dirname = dirname(__filename);
 // https://astro.build/config
 export default defineConfig({
   experimental: {
-    assets: true
   },
   vite: {
     resolve: {

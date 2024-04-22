@@ -1,67 +1,60 @@
 ---
 interface Props {
-  linkTo?: string;
+	linkTo?: string;
 }
 
 const { linkTo = "/" } = Astro.props;
 
 const pathname = new URL(Astro.request.url).pathname;
 const activeClass: string[] =
-  pathname === linkTo ? ["active"] : [];
+	pathname === linkTo ? ["active"] : [];
 ---
 
 <li class:list={activeClass}>
-  <a href={linkTo}>
-    <slot />
-  </a>
-  <div class="overlay"></div>
+	<a href={linkTo}>
+		<slot />
+	</a>
 </li>
 
 <style lang="scss">
-  li {
-    position: relative;
-    overflow: hidden;
+	li {
+		position: relative;
+		overflow: hidden;
+		line-height: calc(128px - 3rem);
+		max-height: calc(128px - 3rem + 3px);
 
-    &:hover,
-    &.active {
-      .overlay {
-        box-shadow: inset 0 0 0rem 0 rgb($black);
-        border-radius: $header-height * 0.5;
-      }
+		&:hover,
+		&.active {
+			a,
+			a:any-link {
+				background: rgb($white);
+				color: rgb($black);
+			}
+		}
+		&.active {
+			max-height: unset;
 
-      a,
-      a:any-link {
-        background: rgb($white);
-        color: rgb($black);
-        border-radius: $header-height * 0.5;
-      }
-    }
-  }
+			a,
+			a:any-link {
+				line-height: calc(128px - 1rem);
+			}
+		}
+	}
 
-  .overlay {
-    position: absolute;
-    pointer-events: none;
-    inset: 0;
-    box-shadow: inset 0 0 1rem 0 rgb($black);
-    border-radius: 0rem;
-    transition:
-      box-shadow 0.1s,
-      border-radius 0.1s;
-  }
-
-  a,
-  a:any-link {
-    display: block;
-    min-width: 10ch;
-    text-align: center;
-    border-inline: 3px dashed rgb($white);
-    border-radius: 0rem;
-    color: rgb($white);
-    text-decoration: none;
-    z-index: 5;
-    transition:
-      background 0.1s,
-      color 0.1s,
-      border-radius 0.1s;
-  }
+	a,
+	a:any-link {
+		display: block;
+		min-width: 10ch;
+		text-align: center;
+		border: 3px dashed rgb($white);
+		border-top: none;
+		color: rgb($white);
+		text-decoration: none;
+		text-transform: uppercase;
+		z-index: 5;
+		transition:
+			background 0.1s,
+			color 0.1s,
+			border-radius 0.1s;
+	}
 </style>

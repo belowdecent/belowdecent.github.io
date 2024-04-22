@@ -12,9 +12,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/jura": "^5.0.20",
     "@fontsource-variable/playfair-display": "^5.0.6",
     "@fontsource-variable/rubik": "^5.0.7",
-    "astro": "^2.9.2",
+    "@fontsource-variable/victor-mono": "^5.0.5",
+    "astro": "^4.6.3",
     "sass": "^1.64.1",
     "svelte": "^4.0.0"
   },

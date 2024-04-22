@@ -1,16 +1,21 @@
-$white: 251 247 243;
-$accent-blue: 74 122 230;
+$white: 255 255 255;
+$accent-blue: 12 230 242;
 $accent-pink: 238 104 129;
 
 $light-pink: 236 64 122;
 $purple: 142 36 170;
-$dark: 49 27 146;
-$black: 41 40 49;
+$mid-light: 0 152 219;
+$mid: 30 87 156;
+$mid-dark: 32 53 98;
+$dark: 37 36 70;
+$black: 32 21 51;
+
+$black-red: 71 0 19;
 
 @mixin background-gradient {
   background: rgb($dark);
-  background: linear-gradient(35deg, 
-    rgb($dark) 0%, 
-    rgb($purple) 64%, 
-    rgb($light-pink) 100%); 
+  background: linear-gradient(35deg,
+      rgb($black) 0%,
+      rgb($dark) 64%,
+      rgb($mid-dark) 100%);
 }

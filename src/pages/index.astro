@@ -4,56 +4,115 @@ import Header from "../components/header/Header.astro";
 import Main from "../components/containers/Main.astro";
 import TabView from "../components/containers/TabView.astro";
 import skills from "../data/skills";
+import ProjectCardList from "../components/cards/ProjectCardList.astro";
+import ProjectCard from "../components/cards/ProjectCard.astro";
 ---
 
 <Layout title="belowdecent">
-  <Header />
-  <Main>
-    <h1>Добро пожаловать</h1>
-    <p>
-      Меня зовут Аскар Кантурин, мне 22<br />
-       И это мой личный веб-сайт
-    </p>
-    <h2>Мои проекты</h2>
-    <p>
-      Проекты: - сделать странички проектам и добавить линки
-      на гитхабы
-    </p>
-    <h2>О себе</h2>
-    <p style="display: none">
-      <a>Программист</a>, <a>музыкант</a>, <a>геймдев</a>.
-      <br />
-       С раннего детства я любил создавать и придумывать.
-      <br />
-       Неважно что: персонажей, мелодии, цвета, сценарии,
-      игры — важен сам процесс: перед тобой "чистый лист", и
-      путем смешных и не очень операций ты делаешь этот лист
-      грязным.
-      <br />
-       Первое где я начал реализовывать свою пассию к
-      созиданию — это поэзия. К сожалению или счастью мои
-      работы в этом направлении были утеряны, но я не думаю,
-      что 6-летний я мог похвастаться хорошим слогом.
-      <br />
-       После этого я начал пробовать себя в рисовании (как
-      наверное любой уважающий себя 10-летний ребенок), но
-      далеко особо не ушел, так как это не казалось мне
-      особо интересным.
-      <br />
-       Потом родители меня отдали в музыкальную школу, с
-      чего началось моё увлечение музыкой.
-      <br />
-       И в 13 лет, помогая отцу с разработкой сайтов я
-      познакомился с программированием, которым я активно
-      занимаюсь до сих пор.
-    </p>
-    <h2>Навыки: </h2>
-    <TabView name="skills" content={skills}/>
-  </Main>
+	<Header />
+	<div class="grid">
+		<Main>
+			<h1>Добро пожаловать</h1>
+			<p>
+				Меня зовут Аскар Кантурин, мне 23 года<br />
+				 И это мой личный веб-сайт (третья итерация)
+			</p>
+			<hr />
+			<h2>О себе</h2>
+			<p>
+				<a>Программист</a>, <a>музыкант</a>, <a>геймдев</a>.
+
+
+				<br />
+				 С раннего детства я любил создавать и придумывать.
+				<br />
+				 Неважно что: персонажей, мелодии, цвета, сценарии,
+				игры — важен сам процесс: перед тобой "чистый лист",
+				и путем смешных и не очень операций ты делаешь этот
+				лист грязным.
+				<br />
+				 Первое где я начал реализовывать свою пассию к
+				созиданию — это поэзия. К сожалению или счастью мои
+				работы в этом направлении были утеряны, но я не
+				думаю, что 6-летний я мог похвастаться хорошим
+				слогом.
+				<br />
+				 После этого я начал пробовать себя в рисовании (как
+				наверное любой уважающий себя 10-летний ребенок), но
+				далеко особо не ушел, так как это не казалось мне
+				особо интересным.
+				<br />
+				 Потом родители меня отдали в музыкальную школу, с
+				чего началось моё увлечение музыкой.
+				<br />
+				 И в 13 лет, помогая отцу с разработкой сайтов я
+				познакомился с программированием, которым я активно
+				занимаюсь до сих пор.
+			</p>
+			<hr />
+			<h2>Навыки:</h2>
+			<TabView name="skills" content={skills} />
+		</Main>
+		<aside>
+			<h1>Мои проекты</h1>
+			<ProjectCardList
+				title="Web"
+				id="web"
+				headingLevel={2}
+			>
+				<ProjectCardList title="React" id="react">
+					<ProjectCard
+						title="Мини-блог на Next.js"
+						linkTo="https://github.com/belowdecent/little-nextjs-proj"
+					>
+						Небольшой блог использующий фреймворк Next.js.
+					</ProjectCard>
+					<ProjectCard
+						title="Pet Rocks"
+						linkTo="https://github.com/belowdecent/petrock-app"
+					>
+						Сайт, что хранит информацию о камнях-питомцев
+						зарегистрированных пользователей.
+						<br />
+						 Бэкенд написан на Nest.js, фронтенд на React.
+						Использует токены JWT.
+					</ProjectCard>
+				</ProjectCardList>
+				<ProjectCardList title="Astro" id="astro">
+					<ProjectCard
+						title="Этот сайт"
+						linkTo="https://github.com/belowdecent/website"
+					>
+						Собственно, мой личный сайт, на котором вы
+						сейчас находитесь, написан на Astro. Мой любимый
+						фреймворк, для небольших проектов, наверное,
+						лучше не найти.
+					</ProjectCard>
+				</ProjectCardList>
+			</ProjectCardList>
+		</aside>
+	</div>
 </Layout>
 
 <style lang="scss">
-h1, h2 {
-  margin-block: 1rem;
-}
+	h1,
+	h2 {
+		margin-bottom: 1rem;
+		line-height: 0.8;
+		text-align: center;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: 60ch 1fr;
+	}
+
+	aside {
+		display: block;
+		max-width: 100%;
+		padding: 1rem;
+		background: rgb($mid-light);
+		border: rgb($dark) solid 2px;
+		border-right: none;
+	}
 </style>
