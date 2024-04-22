@@ -8,7 +8,11 @@
 		color: rgb($white);
 		background: #9c147d;
 		border: rgb($black-red) solid 2px;
-		border-left: none;
+		border-inline-width: 4px;
+		@media (min-width: 60rem) {
+			border-inline-width: 2px;
+			border-left: none;
+		}
 		overflow: hidden;
 	}
 </style>

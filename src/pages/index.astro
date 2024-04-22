@@ -104,7 +104,10 @@ import ProjectCard from "../components/cards/ProjectCard.astro";
 
 	.grid {
 		display: grid;
-		grid-template-columns: 60ch 1fr;
+		grid-template-columns: 1fr;
+		@media (min-width: 60rem) {
+			grid-template-columns: 60ch 1fr;
+		}
 	}
 
 	aside {
@@ -113,6 +116,13 @@ import ProjectCard from "../components/cards/ProjectCard.astro";
 		padding: 1rem;
 		background: rgb($mid-light);
 		border: rgb($dark) solid 2px;
-		border-right: none;
+
+		border-bottom-width: 4px;
+		border-inline-width: 4px;
+		@media (min-width: 60rem) {
+			border-inline-width: 2px;
+			border-bottom-width: 2px;
+			border-right: none;
+		}
 	}
 </style>
